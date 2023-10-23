@@ -37,3 +37,31 @@ __Nel nostro esempio quindi andremo ad alzare ODR8__
 > Gli offset di ogni periferica è salvato in una libreria, quindi stai chill
 
 6. Identificare l'offset, relativa al base address, dei particolari registri [e.g. MDOER]
+
+------------------------------------------------------------------------
+# Timer base (6 e 7)[16 bit]
+__Cap.22 Reference manual__
+> Abbiamo timer a 16 e 32 bit
+
+- Divisore di frequenza (Prescaler PSC): Divide la freq di clock per un intero che decidiamo noi -> invece di incrementatre ogni impulso di clock, aumentiamo ogni K [costante fissata prima]
+
+- Auto-Reload register (ARR)
+
+> Dobbiamo abilitare il conteggio in CR1 della periferica timer che vogliamo usare (e.g. TIM6_CR1) 
+
+> Posso usare anche il timer in modalità base dei tempi per generare un interrupt ogni tot tempo
+
+## TIMx_CR1 Control Register
+***CEN = Counter ENable bit***
+
+## TIMx_SR Status Register
+***UIF = Update Interrupt Flag*** [i.e. quando il timer arriva al valore massimo, si resetta e si alza questo flag]
+
+## TIMx_CNT Counter Register (a 16 bit per TIM6 e TIM7)
+***Contiene il valore del contatore***
+
+## TIMx_PSC Prescaler Register
+***Contiene il valore del prescaler***
+
+## TIMx_ARR Auto-Reload Register
+***Contiene il valore di auto-reload***
