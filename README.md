@@ -65,3 +65,16 @@ __Cap.22 Reference manual__
 
 ## TIMx_ARR Auto-Reload Register
 ***Contiene il valore di auto-reload***
+
+
+# Utilizziamo il timer come base dei tempi
+Viene confrontato continuamente il valore del contatore con il valore di auto-reload. Quando il contatore raggiunge il valore di auto-reload, viene generato un interrupt e il contatore viene automaticamente resettato a 0.
+TIMx_CNT viene incrementato e viene alzato il flag UIF (Update Interrupt Flag) 
+
+> Dobbiamo monitorare UIF. ***Nota che dobbiamo occuparci noi di abbassare UIF***
+
+Il valore in ARR deve essere sempre riferito agli impulsi di clock
+
+### TIMx_SR Status Register in cui è presente UIF
+
+***Nota che di default ARR si trova a 0xFFFF e quindi per sovrascriverelo non dobbiamo fare la or***
