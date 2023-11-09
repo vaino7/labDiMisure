@@ -78,3 +78,7 @@ Il valore in ARR deve essere sempre riferito agli impulsi di clock
 ### TIMx_SR Status Register in cui è presente UIF
 
 ***Nota che di default ARR si trova a 0xFFFF e quindi per sovrascriverelo non dobbiamo fare la or***
+
+
+### Formula per il calcolo di PSC 
+(PSC +1) = ($\delta t * $f_ck ) / ARR
