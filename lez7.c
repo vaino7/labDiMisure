@@ -16,7 +16,7 @@ int main(){
     TIM6->SR = 0; // resetto il flag di overflow
     int contatore = 0;
     while(1){
-        if(TIM->SR & 0x1){
+        if(TIM6->SR & 0x1){
             TIM6->SR=0;
             contatore++;
             GPIOE->ODR = contatore << 8;
